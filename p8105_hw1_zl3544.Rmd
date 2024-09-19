@@ -64,3 +64,7 @@ the data is from the year of `r paste(unique(pull(penguins, year)), collapse = "
 ##the size of the dataset
 
 the size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` columns
+
+##the mean flipper length
+
+the mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`
