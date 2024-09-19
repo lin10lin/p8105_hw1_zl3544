@@ -23,4 +23,12 @@ The problem focus on writing a short description of the penguins dataset which i
 
 * the mean flipper length
 
-
+Load the penguins dataset from the palmerpenguins package:
+```{r load_penguins}
+data("penguins", package = "palmerpenguins")
+```
+The names of the data in penguins dataset is showed using the following code:
+```{r plot_names, collapse=TRUE}
+ls(penguins)
+```
+It shows that the names in the penguins dataset are: `r ls(penguins)`
