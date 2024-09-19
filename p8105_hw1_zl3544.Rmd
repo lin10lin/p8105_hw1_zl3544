@@ -37,28 +37,30 @@ It shows that the names in the penguins dataset are: `r ls(penguins)`
 
 ##values of important variables in the dataset
 
-*bill_depth_mm is a `r class(pull(penguins, bill_depth_mm))` variable, 
+"bill_depth_mm" is a `r class(pull(penguins, bill_depth_mm))` variable, 
 the range is [`r  range(pull(penguins, bill_depth_mm), na.rm = TRUE)`]
 
-*bill_length_mm is a `r class(pull(penguins, bill_length_mm))` variable,
+"bill_length_mm" is a `r class(pull(penguins, bill_length_mm))` variable,
 the range is [`r  range(pull(penguins, bill_length_mm), na.rm = TRUE)`]
 
-*body_mass_g is a `r class(pull(penguins, body_mass_g))` variable,
+"body_mass_g" is a `r class(pull(penguins, body_mass_g))` variable,
 the range is [`r  range(pull(penguins, body_mass_g), na.rm = TRUE)`]
 
-*flipper_length_mm is a `r class(pull(penguins, flipper_length_mm))` variable，
+"flipper_length_mm" is a `r class(pull(penguins, flipper_length_mm))` variable,
 the range is [`r  range(pull(penguins, flipper_length_mm), na.rm = TRUE)`]
 
-*island is a `r class(pull(penguins, island))` variable, 
+"island" is a `r class(pull(penguins, island))` variable, 
 the island are:`r paste(unique(pull(penguins, island)), collapse = ", ")`
 
-*sex is a `r class(pull(penguins, sex))` variable,
+"sex" is a `r class(pull(penguins, sex))` variable,
 which includes: `r paste(unique(pull(penguins, sex)), collapse = ", ")`
 
-*species is a `r class(pull(penguins, species))` variable,
+"species" is a `r class(pull(penguins, species))` variable,
 they are: `r paste(unique(pull(penguins, species)), collapse = ", ")`
 
-*year is a `r class(pull(penguins, year))` variable,
+"year" is a `r class(pull(penguins, year))` variable,
 the data is from the year of `r paste(unique(pull(penguins, year)), collapse = ", ")`
 
+##the size of the dataset
 
+the size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` columns
