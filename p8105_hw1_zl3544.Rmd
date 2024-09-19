@@ -8,6 +8,19 @@ date: "2024-09-19"
 knitr::opts_chunk$set(echo = TRUE)
 ```
 This is my solution for P8105 hw1
+
+load the tidyverse function for hw1
 ```{r library, message=FALSE}
 library(tidyverse)
 ```
+Problem 1
+
+The problem focus on writing a short description of the penguins dataset which include:
+
+* the data in this dataset, including names / values of important variables
+
+* the size of the dataset
+
+* the mean flipper length
+
+
