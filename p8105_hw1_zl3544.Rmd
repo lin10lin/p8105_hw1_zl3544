@@ -23,6 +23,8 @@ The problem focus on writing a short description of the penguins dataset which i
 
 * the mean flipper length
 
+* make a scatterplot
+
 Load the penguins dataset from the palmerpenguins package:
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
@@ -68,3 +70,22 @@ the size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` column
 ##the mean flipper length
 
 the mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`
+
+##making scatterplot
+
+Use this code to make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x), and different species use the different color:
+```{r}
+#make a scatterplot
+scatterplot = ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = species)) +
+  geom_point(na.rm = TRUE) +
+  labs(
+    title = "scatterplot of flipper_length_mm (y) vs bill_length_mm (x)",
+    x = "Bill Length (mm)",
+    y = "Flipper Length (mm)"
+  ) +
+  theme_classic()
+print(scatterplot)
+# save the scatterplot
+ggsave(filename = "scatterplot_flipper_vs_bill.png", plot = scatterplot, width = 6, height = 6)
+
+```
