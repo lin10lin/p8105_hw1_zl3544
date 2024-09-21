@@ -90,3 +90,47 @@ ggsave(filename = "scatterplot_flipper_vs_bill.png", plot = scatterplot, width =
 
 ```
 ### Problem 2
+This problem focus on create a data frame comprised of:
+
+*a random sample of size 10 from a standard Normal distribution
+
+*a logical vector indicating whether elements of the sample are greater than 0
+
+*a character vector of length 10
+
+*a factor vector of length 10, with 3 different factor “levels”
+
+And try to take the mean of each variable in the dataframe.
+
+## create data frame
+First, create four variables describes in the problem 2:
+
+create a random sample:
+```{r}
+random_samp = rnorm(10)
+```
+
+create a logical vector:
+```{r}
+logical_vec = random_samp > 0
+```
+
+create a character vector of length 10:
+```{r}
+char_vec = sample(c("1","2","3"), size=10, replace = TRUE)
+```
+
+create a factor vector:
+```{r}
+factor_vec = factor(sample(c("Level1", "Level2", "Level3"), size = 10, replace = TRUE))
+```
+
+Then put these vector into the dataframe:
+```{r}
+hw1_df=
+  tibble(
+    random_samp=random_samp,
+    logical_vec=logical_vec,
+    char_vec=char_vec,
+    factor_vec=factor_vec
+  )
