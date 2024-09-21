@@ -134,3 +134,32 @@ hw1_df=
     char_vec=char_vec,
     factor_vec=factor_vec
   )
+```
+
+Next, try to take the mean of each variable of the dataframe(hw1_df) using pull function in the vidyverse package:
+```{r mean_pull}
+mean(pull(hw1_df, random_samp))
+mean(pull(hw1_df, logical_vec))
+mean(pull(hw1_df, char_vec))
+mean(pull(hw1_df, factor_vec))
+```
+
+The result shows that we can take the mean of a numeric variable and logical variable, but can't take the mean of character and factor variables.
+
+Then, use as.numeric function to character, and factor variables, in order to try to convert them to numeric variable.
+```{r}
+char_vec_numeric=as.numeric(pull(hw1_df, char_vec))
+factor_vec_numeric=as.numeric(pull(hw1_df, factor_vec))
+```
+Try to caclulate the mean of the converted variable:
+```{r}
+mean_char_vec=mean(char_vec_numeric)
+mean_factor_vec=mean(factor_vec_numeric)
+
+```
+```{r, echo=FALSE}
+cat("The mean of the char_vect is", mean_char_vec)
+cat("The mean of the factor_vec is", mean_factor_vec)
+```
+
+the reason behind this may because I use number1,2,3 to create the char_vec, so after converted, it can be caculated, and the factor vector can be converted into numeric factor using this the as.numeric function.
