@@ -89,3 +89,4 @@ print(scatterplot)
 ggsave(filename = "scatterplot_flipper_vs_bill.png", plot = scatterplot, width = 6, height = 6)
 
 ```
+### Problem 2
