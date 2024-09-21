@@ -7,29 +7,29 @@ date: "2024-09-19"
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
-This is my solution for P8105 hw1
+This is my(ZL3544, ZHAOKUNLIN) solution for P8105 hw1
 
-load the tidyverse function for hw1
+Load the tidyverse function for hw1
 ```{r library, message=FALSE}
 library(tidyverse)
 ```
-###Problem 1
+# Problem 1
 
 The problem focus on writing a short description of the penguins dataset which include:
 
-* the data in this dataset, including names / values of important variables
+* The data in this dataset, including names / values of important variables
 
-* the size of the dataset
+* The size of the dataset
 
-* the mean flipper length
+* The mean flipper length
 
-* make a scatterplot
+* Make a scatterplot
 
 Load the penguins dataset from the palmerpenguins package:
 ```{r load_penguins}
 data("penguins", package = "palmerpenguins")
 ```
-##names of the dataset
+## Names of the dataset
 
 The names of the data in penguins dataset is showed using the following code:
 ```{r plot_names, collapse=TRUE}
@@ -37,41 +37,42 @@ ls(penguins)
 ```
 It shows that the names in the penguins dataset are: `r ls(penguins)`
 
-##values of important variables in the dataset
+## Values of important variables in the dataset
+*   __Bill depth(mm)__
+    * Type: `r class(pull(penguins, bill_depth_mm))`
+    * Range: [`r  range(pull(penguins, bill_depth_mm), na.rm = TRUE)`]
+*   __Vill length(mm)__
+    * Tpye: `r class(pull(penguins, bill_length_mm))`
+    * Range: [`r  range(pull(penguins, bill_length_mm), na.rm = TRUE)`]
+*   __Body_mass(g)__
+    * Tpye: `r class(pull(penguins, body_mass_g))`
+    * Range: [`r  range(pull(penguins, body_mass_g), na.rm = TRUE)`]
+*   __Flipper length(mm)__
+    * Tpye: `r class(pull(penguins, flipper_length_mm))`
+    * Range: [`r  range(pull(penguins, flipper_length_mm), na.rm = TRUE)`]
+*   __Island__
+    * Tpye: `r class(pull(penguins, island))`
+    * Unique values: `r paste(unique(pull(penguins, island)), collapse = ", ")`
+*   __Sex__
+    * Tpye: `r class(pull(penguins, sex))`
+    * Unique values: `r paste(unique(pull(penguins, sex)), collapse = ", ")`
+*   __Species__
+    * Tpye: `r class(pull(penguins, species))`
+    * Unique values: `r paste(unique(pull(penguins, species)), 
+    collapse = ", ")`
+*   __Year__
+    * Tpye: `r class(pull(penguins, year))`
+    * Data is from the year of: `r paste(unique(pull(penguins, year)), collapse = ", ")`
 
-"bill_depth_mm" is a `r class(pull(penguins, bill_depth_mm))` variable, 
-the range is [`r  range(pull(penguins, bill_depth_mm), na.rm = TRUE)`]
+## The size of the dataset
 
-"bill_length_mm" is a `r class(pull(penguins, bill_length_mm))` variable,
-the range is [`r  range(pull(penguins, bill_length_mm), na.rm = TRUE)`]
+The size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` columns
 
-"body_mass_g" is a `r class(pull(penguins, body_mass_g))` variable,
-the range is [`r  range(pull(penguins, body_mass_g), na.rm = TRUE)`]
+## The mean flipper length
 
-"flipper_length_mm" is a `r class(pull(penguins, flipper_length_mm))` variable,
-the range is [`r  range(pull(penguins, flipper_length_mm), na.rm = TRUE)`]
+The mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`
 
-"island" is a `r class(pull(penguins, island))` variable, 
-the island are:`r paste(unique(pull(penguins, island)), collapse = ", ")`
-
-"sex" is a `r class(pull(penguins, sex))` variable,
-which includes: `r paste(unique(pull(penguins, sex)), collapse = ", ")`
-
-"species" is a `r class(pull(penguins, species))` variable,
-they are: `r paste(unique(pull(penguins, species)), collapse = ", ")`
-
-"year" is a `r class(pull(penguins, year))` variable,
-the data is from the year of `r paste(unique(pull(penguins, year)), collapse = ", ")`
-
-##the size of the dataset
-
-the size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` columns
-
-##the mean flipper length
-
-the mean flipper length is `r mean(pull(penguins, flipper_length_mm), na.rm = TRUE)`
-
-##making scatterplot
+## Making scatterplot
 
 Use this code to make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x), and different species use the different color:
 ```{r}
@@ -89,43 +90,44 @@ print(scatterplot)
 ggsave(filename = "scatterplot_flipper_vs_bill.png", plot = scatterplot, width = 6, height = 6)
 
 ```
-### Problem 2
+# Problem 2
 This problem focus on create a data frame comprised of:
 
-*a random sample of size 10 from a standard Normal distribution
+  * A random sample of size 10 from a standard Normal distribution
 
-*a logical vector indicating whether elements of the sample are greater than 0
+  * A logical vector indicating whether elements of the sample are 
+  greater than 0
 
-*a character vector of length 10
+  * A character vector of length 10
 
-*a factor vector of length 10, with 3 different factor “levels”
+  * A factor vector of length 10, with 3 different factor “levels”
 
 And try to take the mean of each variable in the dataframe.
 
-## create data frame
-First, create four variables describes in the problem 2:
+## Create data frame
+### First, create four variables describes in the problem 2:
 
-create a random sample:
+Create a random sample:
 ```{r}
 random_samp = rnorm(10)
 ```
 
-create a logical vector:
+Create a logical vector:
 ```{r}
 logical_vec = random_samp > 0
 ```
 
-create a character vector of length 10:
+Create a character vector of length 10:
 ```{r}
 char_vec = sample(c("1","2","3"), size=10, replace = TRUE)
 ```
 
-create a factor vector:
+Create a factor vector:
 ```{r}
 factor_vec = factor(sample(c("Level1", "Level2", "Level3"), size = 10, replace = TRUE))
 ```
 
-Then put these vector into the dataframe:
+### Then put these vector into the dataframe:
 ```{r}
 hw1_df=
   tibble(
@@ -136,6 +138,7 @@ hw1_df=
   )
 ```
 
+## Take mean of each variable
 Next, try to take the mean of each variable of the dataframe(hw1_df) using pull function in the vidyverse package:
 ```{r mean_pull}
 mean(pull(hw1_df, random_samp))
@@ -162,4 +165,4 @@ cat("The mean of the char_vect is", mean_char_vec)
 cat("The mean of the factor_vec is", mean_factor_vec)
 ```
 
-the reason behind this may because I use number1,2,3 to create the char_vec, so after converted, it can be caculated, and the factor vector can be converted into numeric factor using this the as.numeric function.
+The reason behind this may because I use number1,2,3 to create the char_vec, so after converted, it can be caculated, and the factor vector can be converted into numeric factor using this the as.numeric function.
